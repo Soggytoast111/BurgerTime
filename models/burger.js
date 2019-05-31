@@ -3,18 +3,22 @@ var orm = require("../config/orm.js");
 
 //yum yum burger logic
 var burger = {
-  all: function() {
+  all: function(cb) {
     orm.selectAll("burgers", function(result){
+      console.log("here is result:  ")
+      console.log(result)
         var burgerArray = []
         for (i=0; i<result.length; i++){
-            burgerArray.push(result[i].burger_name)
+          var obj = {
+            id: result[i].id,
+            name: result[i].burger_name,
+            eaten: result[i].devoured
+          }  
+          burgerArray.push(obj)
         }
-        var burgerObj = {
-            "burger": burgerArray
-        }
-        console.log("here is burgerObj:  ")
-        console.log(burgerObj)
-        return burgerObj
+        console.log("here is burgerArray:  ")
+        console.log(burgerArray)
+        cb(burgerArray)
     })
   },
   createBurger: function(burgerVal) {

@@ -5,10 +5,11 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 router.get("/", function(req, res) {
-    var burgerObj = burger.all()
-    console.log("burgerObj in controllers!")
+  burger.all(function(burgerObj){
+    console.log("BurgerObj AGAIN!")
     console.log(burgerObj)
-      res.render("index", burgerObj)
-    })
+    res.render("index", burgerObj)
+  })
+})
 
   module.exports = router;
