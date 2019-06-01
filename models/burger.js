@@ -3,10 +3,8 @@ var orm = require("../config/orm.js");
 
 //yum yum burger logic
 var burger = {
-  all: function(cb) {
+  init: function(cb) {
     orm.selectAll("burgers", function(result){
-      console.log("here is result:  ")
-      console.log(result)
         var burgerArray = []
         for (i=0; i<result.length; i++){
           var obj = {
@@ -16,19 +14,17 @@ var burger = {
           }  
           burgerArray.push(obj)
         }
-        console.log("here is burgerArray:  ")
-        console.log(burgerArray)
         cb(burgerArray)
     })
   },
-  createBurger: function(burgerVal) {
+  createBurger: function(cb) {
     orm.insert("burgers", "burger_name", "devoured", burgerVal, 0, function(result){
 
     });
   },
-  eatBurger: function(id) {
+  eatBurger: function(id, cb) {
     orm.update("burgers", "devoured", 1, "id", id, function(result){
-     
+    cb(result)
     });
   }
 };

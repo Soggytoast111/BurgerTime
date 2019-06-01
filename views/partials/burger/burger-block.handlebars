@@ -1,10 +1,5 @@
-
-<li>
-	{{this.name}}
-
-	<button class="eat-burger" data-id="{{this.id}}" data-newsleep="{{this.devoured}}">
-		{{#if devoured}}EAT BURGER!{{else}}RE-SERVE BURGER!{{/if}}
+<form action="./api/eatBurger/{{this.id}}">
+	<button type="submit" value="eatdaburger" class="eat-burger" data-id="{{this.id}}" data-eaten="{{this.eaten}}">
+		{{this.name}}
 	</button>
-
-	<button class="delete-burger" data-id="{{this.id}}">REMOVE BURGER!</button>
-</li>
+</form>

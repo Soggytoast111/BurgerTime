@@ -20,8 +20,7 @@ var orm = {
         });
     },
     update: function(table, col1, val1, id, idVal, cb) {
-      var queryString = "UPDATE ?? SET ?? = ?? WHERE ?? = ??";
-      console.log(queryString);
+      var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?;"
       connection.query(queryString, [table, col1, val1, id, idVal], function(err, result) {
         if (err) throw err;
         console.log(result);
