@@ -1,5 +1,5 @@
-<form>
-	<button class="eat-burger" data-id="{{this.id}}" data-eaten="{{this.eaten}}">
+<form action="./api/destroyBurger/{{this.id}}">
+	<button type="submit" value="destroydaburger" class="destroy-burger" data-id="{{this.id}}" data-eaten="{{this.eaten}}">
 		{{this.name}}
 	</button>
 </form>

@@ -1,7 +1,7 @@
 // Import ORM
 var orm = require("../config/orm.js");
 
-//yum yum burger logic
+//Interact with ORM to perform database operations with some logic for our burger app
 var burger = {
   init: function(cb) {
     orm.selectAll("burgers", function(result){
@@ -17,15 +17,20 @@ var burger = {
         cb(burgerArray)
     })
   },
-  createBurger: function(cb) {
-    orm.insert("burgers", "burger_name", "devoured", burgerVal, 0, function(result){
-
+  createBurger: function(burgerVal, devoured, cb) {
+    orm.insert("burgers", "burger_name", "devoured", burgerVal, devoured, function(result){
+      cb(result)
     });
   },
   eatBurger: function(id, cb) {
     orm.update("burgers", "devoured", 1, "id", id, function(result){
-    cb(result)
+      cb(result)
     });
+  },
+  destroyBurger: function(id, cb) {
+    orm.delete("burgers", "id", id, function(result) {
+      cb(result)
+    })
   }
 };
 

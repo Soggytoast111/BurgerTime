@@ -1,5 +1,5 @@
 var connection = require("./connection.js");
-
+//ORM to interact with SQL Database
 var orm = {
     selectAll: function(table, cb) {
       var queryString = "SELECT * FROM ??";
@@ -11,7 +11,7 @@ var orm = {
         });
     },
     insert: function(table, col1, col2, val1, val2, cb) {
-      var queryString = "INSERT INTO ?? (??, ??) VALUES (??, ??);"
+      var queryString = "INSERT INTO ?? (??, ??) VALUES (?, ?);"
         console.log("queryString = " + queryString)
     connection.query(queryString, [table, col1, col2, val1, val2], function(err, result) {
         if (err) throw err;
@@ -26,6 +26,14 @@ var orm = {
         console.log(result);
         cb(result)
         });
+    },
+    delete: function(table, id, idVal, cb) {
+      var queryString = "DELETE FROM ?? WHERE ?? = ?;"
+      connection.query(queryString, [table, id, idVal], function(err, result){
+        if (err) throw err;
+        console.log(result);
+        cb(result)
+      })
     }
   };
   
