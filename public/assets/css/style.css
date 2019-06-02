@@ -1,0 +1,48 @@
+.eat-burger {
+    display: block;
+    position: relative;
+    color: white;
+    font-size: 18px;
+    height: 105px;
+    width: 140px;
+    background: url(/assets/img/burg1anim.gif) no-repeat;
+}
+
+span {
+    display: block;
+    position: absolute; 
+    top: 0px;            
+}
+
+.supercontainer {
+    background-color: white;
+    opacity: 0.8
+}
+
+.eat-burger:hover {
+    background: url(/assets/img/burger-mouseover.gif) no-repeat;
+}
+
+.container {
+    background: url(/assets/img/background.gif) no-repeat;
+}
+
+.destroy-burger {
+    display: block;
+    position: relative;
+    font-size: 18px;
+    height: 105px;
+    width: 140px;
+    background: url(/assets/img/garbage.gif) no-repeat;
+}
+
+.burgBlock {
+    border-style: outset;
+    border-color: black;
+    border-width: 5px;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.top-buffer { margin-top:20px; }

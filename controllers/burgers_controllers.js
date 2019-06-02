@@ -20,7 +20,7 @@ router.get("/api/eatBurger/:id", function(req,res){
   res.redirect("../../")
 })
 
-//Clicking the burger button in  the eaten column will delete row in databse (destroy burger) and refresh the page
+//Clicking the burger button in the eaten column will delete row in databse (destroy burger) and refresh the page
 router.get("/api/destroyBurger/:id", function(req,res){
   console.log(req.params.id)
   burger.destroyBurger(req.params.id, function(result){
@@ -29,6 +29,7 @@ router.get("/api/destroyBurger/:id", function(req,res){
   res.redirect("../../")
 })
 
+//Clicking Add Burger button takes data from form and updates database (create burger) and then refreshes the page
 router.get("/api/createBurger/", function(req,res){
   burger.createBurger(req.query.name, req.query.eaten, function(result){
     console.log(result)

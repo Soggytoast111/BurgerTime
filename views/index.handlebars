@@ -1,46 +1,71 @@
-<h1>Burger Time!</h1>
+<div class="supercontainer">
+<div class="container">
+  <div class="row top-buffer">
+    <div class="col-1"></div>
+    <div class="col-10">
+              <h1 class="text-center">Burger Time!</h1>
+              <br>
+              <br>
+              <br>
+              <br>
+    </div>
+    <div class="col-1"></div>
+    </div>
+    <div class="row top-buffer">
+      <div class="col-1"></div>
+      <div class="col-5 burgBlock">
+                <h4>Burgers - get 'em while they're hot!</h4>
+                <h5 class="text-center">(click to eat)</h5>
 
-<h2>Burgers - get 'em while they're hot!</h2>
-<h5>(click to eat)</h5>
+                <ul>
+                  {{#each this}}
+                  {{#if this.eaten}}
+                  {{else}}
+                  {{#if this.name}}
+                  {{> burger/burger-block}}
+                  {{/if}}
+                  {{/if}}
+                  {{/each}}
+                </ul>
+      </div>
+      <div class="col-5 burgBlock">
+                <h4>Yum! These burgers were delicious!</h4>
+                <h5 class="text-center">(click to throw away)</h5>
 
-<ul>
-  {{#each this}}
-  {{#if this.eaten}}
-  {{else}}
-  {{#if this.name}}
-   {{> burger/burger-block}}
-   {{/if}}
-  {{/if}}
-  {{/each}}
-</ul>
+                <ul>
+                  {{#each this}}
+                  {{#if this.eaten}}
+                  {{#if this.name}}
+                  {{> burger/burger-block2}}
+                  {{/if}}
+                  {{/if}}
+                  {{/each}}
+                </ul>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="row top-buffer">
+    <div class="col-4"></div>
+    <div class="col-4 burgBlock">
+              <h2>Serve up a new burger!</h2>
+              <form action="./api/createBurger/" class="create-form">
 
-<h2>Yum! These burgers were delicious!</h2>
-<h5>(click to throw away)</h5>
+                <div class="form-group">
+                  <label for="ca">Burger Name:</label>
+                  <input type="text" id="burgerNameBox" name="name">
+                </div>
 
-<ul>
-  {{#each this}}
-  {{#if this.eaten}}
-  {{#if this.name}}
-   {{> burger/burger-block2}}
-   {{/if}}
-  {{/if}}
-  {{/each}}
-</ul>
+                <div class="form-group">
+                  <label for="eat">Eaten?</label><br>
+                  <input type="radio" name="eaten" value="0" checked> Served!<br>
+                  <input type="radio" name="eaten" value="1"> Eaten!
+                </div>
 
-
-<h2>Serve up a new burger!</h2>
-<form action="./api/createBurger/" class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="burgerNameBox" name="name">
+                <button type="submit">Add Burger</button>
+              </form>
+    </div>
+    <div class="col-4"></div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="eat">Eaten?</label><br>
-    <input type="radio" name="eaten" value="0" checked> Served!<br>
-    <input type="radio" name="eaten" value="1"> Eaten!
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
+</div>
+</div>
