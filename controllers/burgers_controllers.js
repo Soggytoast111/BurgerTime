@@ -12,6 +12,10 @@ var burger = require("../models/burger.js");
 //})
 
 router.get("/", function(req, res) {
+  burger.init(function(burgerObj){
+    console.log("Here is BurgerOBJ inside Controllers.js:  ")
+    console.log(burgerObj)
+  })
   var hbsObject = {
     burgerName: "sample burger",
   devoured: false

@@ -6,6 +6,7 @@ var orm = {
       console.log("queryString = " + queryString);
       connection.query(queryString, [table], function(err, result) {
         if (err) throw err;
+        console.log("here is result from the DB! (ORM.JS)")
         console.log(result);
         cb(result)
         });
