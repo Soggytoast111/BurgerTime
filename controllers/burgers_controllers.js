@@ -16,10 +16,11 @@ router.get("/", function(req, res) {
     console.log("Here is BurgerOBJ inside Controllers.js:  ")
     console.log(burgerObj)
   })
-  var hbsObject = {
-    burgerName: "sample burger",
-  devoured: false
-  };
+  var hbsObject = [{
+    id: 1,
+    name: "TestBurgerSupreme",
+    eaten: false
+  }];
   res.render("index", hbsObject);
 });
 
