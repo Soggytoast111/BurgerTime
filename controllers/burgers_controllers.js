@@ -5,11 +5,20 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 //On pageload, grabs data from database and sents to client
-router.get("/", function(req, res) {
-  burger.init(function(burgerObj){
-    res.render("index", burgerObj)
-  })
-})
+//router.get("/", function(req, res) {
+  //burger.init(function(burgerObj){
+    //res.render("index", burgerObj)
+  //})
+//})
+
+app.get("/", function(req, res) {
+  var hbsObject = {
+    burgerName: "sample burger",
+  devoured: false
+  };
+  res.render("index", hbsObject);
+});
+
 
 //Clicking the burger button in the ready column will mark as devoured in database and refresh the page
 router.get("/api/eatBurger/:id", function(req,res){
