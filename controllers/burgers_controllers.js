@@ -11,7 +11,7 @@ var burger = require("../models/burger.js");
   //})
 //})
 
-app.get("/", function(req, res) {
+router.get("/", function(req, res) {
   var hbsObject = {
     burgerName: "sample burger",
   devoured: false
