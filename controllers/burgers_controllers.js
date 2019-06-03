@@ -15,13 +15,13 @@ router.get("/", function(req, res) {
   burger.init(function(burgerObj){
     console.log("Here is BurgerOBJ inside Controllers.js:  ")
     console.log(burgerObj)
+    res.render("index", burgerObj);
   })
   var hbsObject = [{
     id: 1,
     name: "TestBurgerSupreme",
     eaten: false
   }];
-  res.render("index", hbsObject);
 });
 
 
